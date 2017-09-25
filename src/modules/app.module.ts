@@ -1,10 +1,17 @@
-import { Module } from '@nestjs/common';
-import { JenkinsController } from './controllers/jenkins.controller';
-import { JenkinsService } from './components/jenkins.service';
+import { LoggerMiddleware } from './common/middlewares/logger.middleware';
+import { JenkinsController } from './jenkins/jenkins.controller';
+import { Module, NestModule, MiddlewaresConsumer  } from '@nestjs/common';
+import { JenkinsModule } from './jenkins/jenkins.module';
+
+import './shared/rxjs-operators';
 
 @Module({
-    modules: [],
-    controllers: [JenkinsController],
-    components: [JenkinsService],
+    modules: [JenkinsModule]
 })
-export class ApplicationModule {}
+export class ApplicationModule implements NestModule {
+    configure(consumer: MiddlewaresConsumer): void {
+        consumer.apply(LoggerMiddleware)
+            .with('ApplicationModule')
+            .forRoutes(JenkinsController);
+    }
+}
