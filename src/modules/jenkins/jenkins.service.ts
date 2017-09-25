@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import './../shared/rxjs-operators';
 
 import { Component } from '@nestjs/common';
-import * as jenkinsapi from './../../../node_modules/jenkins-api';
+import * as jenkinsapi from 'jenkins-api';
 
 @Component()
 export class JenkinsService {
