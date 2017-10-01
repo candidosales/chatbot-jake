@@ -11,13 +11,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const bodyParser = require("body-parser");
 const core_1 = require("@nestjs/core");
 const app_module_1 = require("./modules/app.module");
+const apicache = require("apicache");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const app = yield core_1.NestFactory.create(app_module_1.ApplicationModule);
         app.setGlobalPrefix('v1');
         app.use(bodyParser.json());
+        initCache(app);
         yield app.listen(8080);
     });
+}
+function initCache(app) {
+    const cache = apicache.options({
+        headers: {
+            'cache-control': 'no-cache'
+        }
+    })
+        .middleware;
+    const onlyStatus200 = (req, res) => res.statusCode === 200;
+    app.use(cache('1 month', onlyStatus200));
 }
 bootstrap();
 //# sourceMappingURL=server.js.map

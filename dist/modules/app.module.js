@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const cache_module_1 = require("./cache/cache.module");
 const logger_middleware_1 = require("./common/middlewares/logger.middleware");
 const jenkins_controller_1 = require("./jenkins/jenkins.controller");
 const common_1 = require("@nestjs/common");
@@ -20,7 +21,7 @@ let ApplicationModule = class ApplicationModule {
 };
 ApplicationModule = __decorate([
     common_1.Module({
-        modules: [jenkins_module_1.JenkinsModule]
+        modules: [jenkins_module_1.JenkinsModule, cache_module_1.CacheModule]
     })
 ], ApplicationModule);
 exports.ApplicationModule = ApplicationModule;
