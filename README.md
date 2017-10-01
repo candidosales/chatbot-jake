@@ -14,6 +14,12 @@ $ npm install
 $ npm run start
 ```
 
+## Deploy
+
+```
+$ gcloud app deploy
+```
+
 ## People
 
 - Author - [Kamil Myśliwiec](http://kamilmysliwiec.com)
