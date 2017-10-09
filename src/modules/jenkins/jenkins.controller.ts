@@ -10,7 +10,8 @@ export class JenkinsController {
     findJobs(@Res() res) {
         this.jenkinsService.getJobs()
                            .subscribe((response) => {
-                               res.status(HttpStatus.OK).json(response);
+                               console.log(response);
+                               res.status(HttpStatus.OK).send(response);
                             });
     }
 

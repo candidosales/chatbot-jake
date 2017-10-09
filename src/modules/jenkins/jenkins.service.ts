@@ -1,8 +1,9 @@
+import * as jenkinsapi from 'jenkins-api';
+import { Component } from '@nestjs/common';
+import { HttpService } from '../http.service';
 import { Observable } from 'rxjs/Observable';
 import './../shared/rxjs-operators';
 
-import { Component } from '@nestjs/common';
-import * as jenkinsapi from 'jenkins-api';
 
 @Component()
 export class JenkinsService {
@@ -12,7 +13,9 @@ export class JenkinsService {
     public token = '4aa39cf81e077f42f2c174073d890141';
     public host = 'jenkins.vcmais.com:8080';
     
-    constructor() {
+    constructor(
+        private httpService: HttpService
+    ) {
         this.jenkinsApi = jenkinsapi
                             .init(`http://${this.user}:${this.token}@${this.host}`, {
                                 request: {
@@ -26,7 +29,8 @@ export class JenkinsService {
     }
 
     getJobs(): Observable<any> {
-        return this.callbackToObservable(this.jenkinsApi.all_jobs);
+        // return this.callbackToObservable(this.jenkinsApi.all_jobs);
+        return this.httpService.get('http://www.mocky.io/v2/59daa1350f0000740002a552');
     }
 
     getQueues(): Observable<any> {

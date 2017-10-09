@@ -15,23 +15,27 @@
         "rimraf": "rimraf"
     },
     "dependencies": {
-        "@nestjs/common": "^4.0.1",
-        "@nestjs/core": "^4.0.1",
-        "@nestjs/microservices": "^4.0.1",
-        "@nestjs/testing": "^4.0.1",
-        "@nestjs/websockets": "^4.0.1",
+        "@nestjs/common": "^4.1.0",
+        "@nestjs/core": "^4.1.0",
+        "@nestjs/microservices": "^4.1.0",
+        "@nestjs/testing": "^4.1.0",
+        "@nestjs/websockets": "^4.1.0",
         "apicache": "^1.1.0",
         "body-parser": "^1.18.2",
+        "connect-timeout": "^1.9.0",
         "jenkins-api": "^0.3.1",
         "jenkins-api-ts-typings": "^0.2.0",
         "redis": "^2.7.1",
         "reflect-metadata": "^0.1.10",
+        "request": "^2.83.0",
+        "request-promise": "^4.2.2",
+        "request-promise-native": "^1.0.5",
         "rimraf": "~2.6.2",
         "rxjs": "^5.4.3",
-        "typescript": "^2.5.2"
+        "typescript": "^2.5.3"
     },
     "devDependencies": {
-        "@types/node": "^8.0.28",
+        "@types/node": "^8.0.33",
         "nodemon": "^1.12.1",
         "ts-node": "^3.3.0"
     },
