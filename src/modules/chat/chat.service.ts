@@ -17,7 +17,7 @@ export class ChatService {
     constructor(private readonly chatJenkinsService: ChatJenkinsService) {
     }
 
-    public buildResponse(parameters): Observable<string> {
+    public buildResponse(parameters): Observable<string> {        
         return this.chatJenkinsService.buildResponse(parameters);
         // return this.jenkinsService.getJobs()
         //             .map((response) => {

@@ -14,7 +14,7 @@ export class ChatJenkinsService  {
     constructor(private readonly jenkinsService: JenkinsService) { }
 
     public buildResponse(obj: any = {}): Observable<string> {
-        if (obj.resource === 'job' && obj.status === 'exist') {
+        if (obj.resource === 'job') {
             return this.jenkinsService.getJobs()
                         .map((response) => {
                             return this.prepareResponseJobStatus(JSON.parse(response))
